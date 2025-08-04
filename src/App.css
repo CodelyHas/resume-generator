@@ -111,7 +111,7 @@ html, body, #root {
 }
 
 .form-section {
-  @apply p-4 md:p-8 bg-[#ffffff] my-3 mx-auto md:m-5 rounded-2xl md:rounded-3xl w-full md:w-96 shadow-md pointer-events-none;
+  @apply p-4 md:p-8 bg-[#ffffff] my-3 mx-auto md:m-5 rounded-2xl md:rounded-3xl w-full md:w-96 shadow-md;
 }
 
 .form-label {
