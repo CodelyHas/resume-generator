@@ -1,46 +1,52 @@
 @import "tailwindcss";
 
+html, body, #root {
+    @apply overflow-x-hidden;
+}
+
 #root {
-  @apply max-w-[1280px] mx-auto pt-4 pb-8 text-center;
+  @apply max-w-[1280px] mx-auto px-4 pt-4 pb-8 text-center;
 }
 
 #app-container {
-  @apply flex flex-col lg:flex-row gap-12 items-start;
+  @apply flex flex-col lg:flex-row gap-6 lg:gap-12 items-start;
 }
 
 #projects-modal {
-  @apply fixed top-1/2 left-1/2 -translate-1/2 z-50 rounded-lg p-6 w-[75%] h-[75%] bg-[#f9fafb] shadow-md overflow-auto;
+  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 rounded-lg p-4 md:p-6 w-[90%] md:w-[85%] lg:w-[75%] h-[80%] md:h-[75%] bg-[#f9fafb] shadow-md;
 }
 
 #modal-content {
-  @apply h-full overflow-y-auto
+  @apply h-full;
 }
 
 #formsContainer {
-  @apply flex-1;
+  @apply flex-1 w-full lg:w-auto;
 }
 
 #resumeContainer {
-  @apply shadow-md bg-[#ffffff] m-0 p-0 mt-5 
-         w-[210mm] h-[297mm]
-         max-w-[210mm] max-h-[297mm]
-         overflow-auto break-words whitespace-pre-wrap;
+  @apply shadow-md bg-[#ffffff] mt-5 mx-auto
+          w-full sm:w-[210mm]
+          max-w-full sm:max-w-[210mm]
+          min-h-[297mm] h-auto
+          break-words whitespace-pre-wrap
+          overflow-visible;
 }
 
 #personal {
-  @apply bg-[#0e374e] p-5 text-white leading-10;
+  @apply bg-[#0e374e] p-3 md:p-5 text-white leading-8 md:leading-10;
 }
 
-#educational {
-  @apply pt-3;
+#educational, #professional {
+  @apply pt-2 md:pt-3;
 }
 
 #professional {
-  @apply pt-3 mt-2;
+  @apply mt-1 md:mt-2;
 }
 
 .expand-collapse {
-  @apply transition-all duration-500 ease-in-out overflow-visible;
+  @apply transition-all duration-500 ease-in-out overflow-hidden;
 }
 
 .expanded {
@@ -51,6 +57,7 @@
   @apply max-h-0 opacity-0 scale-95;
 }
 
+
 .field-fade-in {
   @apply transition-all duration-300 ease-in-out opacity-0 translate-y-2;
 }
@@ -60,15 +67,15 @@
 }
 
 .modal-backdrop {
-  @apply fixed inset-0 bg-black opacity-70 z-40
+  @apply fixed inset-0 bg-black opacity-70 z-40;
 }
 
 .project-items {
-  @apply flex text-[#5e6876] items-start py-3 px-4 bg-[#ebebeb] hover:bg-[#cfcfcfee] rounded shadow-md;
+  @apply flex text-[#5e6876] items-start py-2 px-3 md:py-3 md:px-4 bg-[#ebebeb] hover:bg-[#cfcfcfee] rounded shadow-md;
 }
 
 .list-actions {
-  @apply flex space-x-3;
+  @apply flex space-x-2 md:space-x-3;
 }
 
 .edit-btn, .delete-btn {
@@ -76,39 +83,39 @@
 }
 
 .edit-btn {
-  @apply text-blue-400 hover:text-blue-300 text-lg;
+  @apply text-blue-400 hover:text-blue-300 text-base md:text-lg;
 }
 
 .delete-btn {
-  @apply text-red-400 hover:text-red-300 text-lg;
+  @apply text-red-400 hover:text-red-300 text-base md:text-lg;
 }
 
 .modal-close-btn {
-  @apply absolute top-4 right-4 text-black text-xl hover:text-red-500 cursor-pointer bg-transparent border-none
+  @apply absolute top-2 right-2 md:top-4 md:right-4 text-black text-lg md:text-xl hover:text-red-500 cursor-pointer bg-transparent border-none;
 }
 
 .resume-sections {
-  @apply pl-8 flex items-start gap-4 mb-7;
+  @apply pl-4 md:pl-8 flex items-start gap-2 md:gap-4 mb-4 md:mb-7;
 }
 
 .date {
-  @apply text-lg text-black ;
+  @apply text-base md:text-lg text-black;
 }
 
-.project-desc{
-  @apply mt-1 pr-15 text-left whitespace-pre-line break-words max-w-prose;
+.project-desc {
+  @apply mt-1 pr-4 md:pr-15 text-left whitespace-pre-line break-words max-w-prose;
 }
 
 .content-title {
-  @apply text-[1.1em]
+  @apply text-[1em] md:text-[1.1em];
 }
 
 .form-section {
-  @apply p-8 bg-[#ffffff] m-5 rounded-3xl w-96 shadow-md;
+  @apply p-4 md:p-8 bg-[#ffffff] my-3 mx-auto md:m-5 rounded-2xl md:rounded-3xl w-full md:w-96 shadow-md pointer-events-none;
 }
 
 .form-label {
-  @apply block text-left text-lg font-semibold mb-1 text-black;
+  @apply block text-left text-base md:text-lg font-semibold mb-1 text-black;
 }
 
 .form-input {
@@ -118,29 +125,29 @@
 }
 
 .form-name {
-  @apply block text-center text-2xl mb-2.5  hover:cursor-pointer;
+  @apply inline-block mx-auto text-center text-xl md:text-2xl mb-2 cursor-pointer pointer-events-auto;
 }
 
 .regular-block {
-    @apply flex items-center justify-between p-5 bg-[#ffffff] m-5 rounded-3xl w-96 shadow-md;
+  @apply flex items-center justify-between p-4 md:p-5 bg-[#ffffff] my-3 mx-auto md:m-5 rounded-2xl md:rounded-3xl w-full md:w-96 shadow-md;
 }
 
 .manage-btn {
-  @apply w-[50%] text-[0.9em] px-9 py-2 bg-[#e5e7eb] hover:bg-[#d1d5dc] text-[#364153] font-bold rounded-md
+  @apply w-[50%] text-[0.8em] md:text-[0.9em] px-4 py-1 md:px-9 md:py-2 bg-[#e5e7eb] hover:bg-[#d1d5dc] text-[#364153] font-bold rounded-md
   hover:shadow-[0_0_4px_rgba(255,255,255,0.15)] transition duration-200 hover:cursor-pointer;
 }
 
 .empty-btn {
-  @apply text-[0.9em] px-9 py-2 text-white font-bold rounded-md hover:cursor-pointer
+  @apply text-[0.8em] md:text-[0.9em] px-4 py-1 md:px-9 md:py-2 text-white font-bold rounded-md hover:cursor-pointer
   bg-[#e20000] hover:bg-[#b10000da];
 }
 
 .save-resume {
-  @apply px-9 py-2 text-[#364153] font-bold rounded-md hover:cursor-pointer bg-[#e5e7eb] hover:bg-[#d1d5dc]
+  @apply px-4 py-1 md:px-9 md:py-2 text-[#364153] font-bold rounded-md hover:cursor-pointer bg-[#e5e7eb] hover:bg-[#d1d5dc];
 }
 
-.add-btn, .discard-btn, .confirm-btn{
-  @apply w-full px-3 py-2 mt-5 border-none border rounded-md shadow-sm hover:cursor-pointer hover:shadow-[0_0_4px_rgba(255,255,255,0.15)] transition duration-200
+.add-btn, .discard-btn, .confirm-btn {
+  @apply w-full px-3 py-2 mt-3 md:mt-5 border-none border rounded-md shadow-sm hover:cursor-pointer hover:shadow-[0_0_4px_rgba(255,255,255,0.15)] transition duration-200
   border-gray-600 text-white font-bold;
 }
 
@@ -153,7 +160,7 @@
 }
 
 .confirm-btn {
-  @apply bg-[#24d700] hover:bg-[#25cc04ab]
+  @apply bg-[#24d700] hover:bg-[#25cc04ab];
 }
 
 @media (prefers-color-scheme: dark) {
@@ -219,5 +226,15 @@
 
   .modal-close-btn {
     @apply text-white hover:text-red-400;
+  }
+}
+
+@media (max-width: 640px) {
+  #resumeContainer {
+    @apply h-auto min-h-[297mm];
+  }
+  
+  .resume-sections {
+    @apply flex-col;
   }
 }
