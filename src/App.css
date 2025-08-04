@@ -1,6 +1,223 @@
+@import "tailwindcss";
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  @apply max-w-[1280px] mx-auto pt-4 pb-8 text-center;
+}
+
+#app-container {
+  @apply flex flex-col lg:flex-row gap-12 items-start;
+}
+
+#projects-modal {
+  @apply fixed top-1/2 left-1/2 -translate-1/2 z-50 rounded-lg p-6 w-[75%] h-[75%] bg-[#f9fafb] shadow-md overflow-auto;
+}
+
+#modal-content {
+  @apply h-full overflow-y-auto
+}
+
+#formsContainer {
+  @apply flex-1;
+}
+
+#resumeContainer {
+  @apply shadow-md bg-[#ffffff] m-0 p-0 mt-5 
+         w-[210mm] h-[297mm]
+         max-w-[210mm] max-h-[297mm]
+         overflow-auto break-words whitespace-pre-wrap;
+}
+
+#personal {
+  @apply bg-[#0e374e] p-5 text-white leading-10;
+}
+
+#educational {
+  @apply pt-3;
+}
+
+#professional {
+  @apply pt-3 mt-2;
+}
+
+.expand-collapse {
+  @apply transition-all duration-500 ease-in-out overflow-visible;
+}
+
+.expanded {
+  @apply max-h-[1000px] opacity-100 scale-100;
+}
+
+.collapsed {
+  @apply max-h-0 opacity-0 scale-95;
+}
+
+.field-fade-in {
+  @apply transition-all duration-300 ease-in-out opacity-0 translate-y-2;
+}
+
+.expanded .field-fade-in {
+  @apply opacity-100 translate-y-0;
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 bg-black opacity-70 z-40
+}
+
+.project-items {
+  @apply flex text-[#5e6876] items-start py-3 px-4 bg-[#ebebeb] hover:bg-[#cfcfcfee] rounded shadow-md;
+}
+
+.list-actions {
+  @apply flex space-x-3;
+}
+
+.edit-btn, .delete-btn {
+  @apply cursor-pointer;
+}
+
+.edit-btn {
+  @apply text-blue-400 hover:text-blue-300 text-lg;
+}
+
+.delete-btn {
+  @apply text-red-400 hover:text-red-300 text-lg;
+}
+
+.modal-close-btn {
+  @apply absolute top-4 right-4 text-black text-xl hover:text-red-500 cursor-pointer bg-transparent border-none
+}
+
+.resume-sections {
+  @apply pl-8 flex items-start gap-4 mb-7;
+}
+
+.date {
+  @apply text-lg text-black ;
+}
+
+.project-desc{
+  @apply mt-1 pr-15 text-left whitespace-pre-line break-words max-w-prose;
+}
+
+.content-title {
+  @apply text-[1.1em]
+}
+
+.form-section {
+  @apply p-8 bg-[#ffffff] m-5 rounded-3xl w-96 shadow-md;
+}
+
+.form-label {
+  @apply block text-left text-lg font-semibold mb-1 text-black;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border-none border rounded-md shadow-sm
+         resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent 
+         bg-[#eef0f4] text-black placeholder-[#7c7d7f];
+}
+
+.form-name {
+  @apply block text-center text-2xl mb-2.5  hover:cursor-pointer;
+}
+
+.regular-block {
+    @apply flex items-center justify-between p-5 bg-[#ffffff] m-5 rounded-3xl w-96 shadow-md;
+}
+
+.manage-btn {
+  @apply w-[50%] text-[0.9em] px-9 py-2 bg-[#e5e7eb] hover:bg-[#d1d5dc] text-[#364153] font-bold rounded-md
+  hover:shadow-[0_0_4px_rgba(255,255,255,0.15)] transition duration-200 hover:cursor-pointer;
+}
+
+.empty-btn {
+  @apply text-[0.9em] px-9 py-2 text-white font-bold rounded-md hover:cursor-pointer
+  bg-[#e20000] hover:bg-[#b10000da];
+}
+
+.save-resume {
+  @apply px-9 py-2 text-[#364153] font-bold rounded-md hover:cursor-pointer bg-[#e5e7eb] hover:bg-[#d1d5dc]
+}
+
+.add-btn, .discard-btn, .confirm-btn{
+  @apply w-full px-3 py-2 mt-5 border-none border rounded-md shadow-sm hover:cursor-pointer hover:shadow-[0_0_4px_rgba(255,255,255,0.15)] transition duration-200
+  border-gray-600 text-white font-bold;
+}
+
+.add-btn {
+  @apply bg-[#34383b] hover:bg-[#25282b];
+}
+
+.discard-btn {
+  @apply bg-red-600 hover:bg-red-700;
+}
+
+.confirm-btn {
+  @apply bg-[#24d700] hover:bg-[#25cc04ab]
+}
+
+@media (prefers-color-scheme: dark) {
+  #root {
+    @apply text-white;
+  }
+
+  #projects-modal {
+    @apply bg-[#1a1a1a] text-white;
+  }
+
+  #resumeContainer {
+    @apply bg-[#2d2d2d] shadow-lg;
+  }
+
+  #personal {
+    @apply bg-[#0d3a56];
+  }
+
+  .project-items {
+    @apply bg-[#333333] text-[#c9c9c9] hover:bg-[#444444];
+  }
+
+  .form-section, .regular-block {
+    @apply bg-[#333333] shadow-lg;
+  }
+
+  .form-label, .form-name, .date, .content-title {
+    @apply text-white;
+  }
+
+  .form-input {
+    @apply bg-[#444444] text-white placeholder-[#a0a0a0];
+  }
+
+  .manage-btn, .save-resume {
+    @apply bg-[#444444] text-[#e0e0e0] hover:bg-[#555555];
+  }
+
+  .empty-btn {
+    @apply bg-[#ff3a3a] hover:bg-[#ff5252];
+  }
+
+  .add-btn {
+    @apply bg-[#505050] hover:bg-[#606060];
+  }
+
+  .discard-btn {
+    @apply bg-[#ff4444] hover:bg-[#ff5c5c];
+  }
+
+  .confirm-btn {
+    @apply bg-[#28e000] hover:bg-[#3aff1a];
+  }
+
+  .edit-btn {
+    @apply text-blue-300 hover:text-blue-200;
+  }
+
+  .delete-btn {
+    @apply text-red-300 hover:text-red-200;
+  }
+
+  .modal-close-btn {
+    @apply text-white hover:text-red-400;
+  }
 }
